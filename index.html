@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador Rick y Morty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" sizes="16x16 32x32">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+
+
+
+</head>
+<body>
+    <header >
+        <img src="/img/fav-activo.png" alt="favoritos" id="iconFav">
+        <a id="listaFav" class="elemHeader" href="favoritos.html">Favoritos</a>
+    </header>
+    <div id="inicio">
+        <h1>Buscador de personajes de Rick y Morty</h1>
+        <input type="text" id="personajeInput"  placeholder="Busca por nombre">
+        <button id="buscarBtn"><i class="bi bi-search"></i></button>
+    </div>
+
+    <div class="container oculto" id="divResultado">
+    </div>
+    <button id="btnVolver" class="oculto">Volver al buscador</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
