@@ -26,13 +26,14 @@ data.results.forEach(personaje => {
     divInicio.classList.add("oculto");
     let div = document.createElement("div");
     div.className="resultado col-12 col-md-6 col-lg-4 mb-3";
-    div.innerHTML = `<img class="favNo iconoFav" src="/img/fav-no.png" alt="agregar a favoritos data-id="${personaje.id}">
+    div.innerHTML = `
                       <h5>${personaje.name}</h5>
                       <img src=${personaje.image} id="avatar">    
                       <p>ID: ${personaje.id}</p>
                       <p>Estado:${traducirEstado(personaje.status)}</p>
-                      <p>Especie:${personaje.species})</p>
+                      <p>Especie:${personaje.species}</p>
                       <p>Género: ${traducirGenero(personaje.gender)}</p>
+                      <img class="favNo iconoFav" src="/img/fav-no.png" alt="agregar a favoritos data-id="${personaje.id}">
                       `
                       ;
 divResultado.appendChild(div);
@@ -60,14 +61,16 @@ input.addEventListener('keydown', function(event) {
 
 btnVolver.addEventListener("click",function(){
   divResultado.classList.add("oculto");
+  divResultado.innerHTML="";
   btnVolver.classList.add("oculto");
-  divInicio.classList.remove("ocultoResponsive");
+  divInicio.classList.remove("oculto");
 })
 
 
 //Favoritos
-function agregarFav(personaje){
+function agregarFav(personaje,iconoFav){
 favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; //Recupera el array de favoritos guardado en localStorage, o un array vacío si no existe.
+console.log(favoritos);
 const estaEnFav = favoritos.some(f => f.id === personaje.id);
 if (!estaEnFav){       /*Si no esta en favorito lo agrega,y viceversa*/
         iconoFav.src="/img/fav-activo.png";

@@ -6,25 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
   if (favoritos.length === 0) {
     contenedorFav.innerHTML = `<p>Aún no hay favoritos</p>`;
   } else {
-    favoritos.forEach(nombre => {
-        data.results.forEach(personaje => {
-      let div = document.createElement("div");
-    div.className="resultado col-12 col-md-6 col-lg-4 mb-3 tarjetaPersonaje";
+    favoritos.forEach(personaje => {
+    let div = document.createElement("div");
+    div.className="resultado col-6 col-md-4 col-lg-3 mb-3";
     div.innerHTML = `<button class="quitarFav" data-name="${personaje.name}"><i class="bi bi-x"></i></button>
                       <h5>${personaje.name}</h5>
-                      <img src=${personaje.image} >    
+                      <img src=${personaje.image} id="avatar">    
                       <p>ID: ${personaje.id}</p>
-                      <p>Estado:${traducirEstado(personaje.status)})</p>
-                      <p>Especie:${traducirEspecie(personaje.species)})</p>
+                      <p>Estado:${traducirEstado(personaje.status)}</p>
+                      <p>Especie:${personaje.species}</p>
                       <p>Género: ${traducirGenero(personaje.gender)}</p>
                       `
                       ;
 contenedorFav.appendChild(div);
-restaurarFavoritos();
-        });
     });
-  }
+}
 });
+
 
 let btnQuitarFav=document.getElementsByClassName("quitarFav");
 contenedorFav.addEventListener("click", function (e) {
@@ -46,3 +44,30 @@ contenedorFav.addEventListener("click", function (e) {
   }
   }})
 ;
+
+
+//Funciones para mostrar los datos en español
+
+function traducirEstado(estado) {
+    if (estado === "Alive") {
+        return "Vivo";
+    } else if (estado === "Dead") {
+        return "Muerto";
+    } else {
+        return "Desconocido";
+    }
+}
+
+
+function traducirGenero(genero) {
+    if (genero === "female") {
+        return "Femenino";
+    } else if (genero === "male") {
+        return "Masculino";
+    } else if (genero === "Genderless") {
+        return "Sin género";
+    } else {
+        return "Desconocido";
+    
+    }
+}

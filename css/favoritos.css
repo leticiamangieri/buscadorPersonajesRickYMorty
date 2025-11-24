@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    background-position: center top;
     display: flex;
     flex-direction: column;
 }
@@ -21,7 +22,7 @@ body {
     color: rgb(255, 255, 255);
     font-family: 'Creepster', sans-serif;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 50px;
 }
 
 nav{
@@ -37,22 +38,6 @@ nav a{
     font-family: 'Creepster', sans-serif;
 }
 
-#contenedor-fav{
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(255, 255, 200, 0.7);
-}
-
-.resultado {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 10px rgba(132, 131, 129, 0.7);
-    height: 250px;
-
-}
 h5{ 
     color: black;
     font-family: 'Press Start 2P', sans-serif;
@@ -66,32 +51,77 @@ p{
 }
 
 .quitarFav{
-    position: absolute;
     cursor: pointer;
     border: none;
     background-color: transparent;
     font-size: 30px;
 }
 
-.tarjetaFav{
-    height: auto;
+#contenedor-fav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 255, 200, 0.7);
 }
 
-@media only screen and (max-width: 800px) {  /*celulares*/
+.resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(132, 131, 129, 0.7);
+    width: 100px;
+    height: 420px;
+    margin: 10px;
+    position: relative;
+}
 
-body{
+
+.resultado .quitarFav {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#avatar{
+  width: 150px;
+}
+
+
+
+/*RESPONSIVO*/
+
+@media only screen and (max-width: 800px) {  /*celulares*/
+   body {
+    display: flex;
     flex-direction: column;
     gap: 25px;
     background-size: cover;
-    background-position: 50% center; 
-}
+    background-position: 80% center;  /*Mueve la imagen 650 pixeles a izq sobre el eje x, y la centra en el eje y*/
+  }
 
-#titulo{
-    margin-left: 40px;
-    margin-top: 10%;
-    font-size: 5px;
-}
+  #inicio{
+    margin-left:0;
+    width: 250px;
+    margin-top: 0;
+  }
 
+  .ocultoResponsive{
+    display: none !important;
+  }
 
+  #contenedor-fav {
+    margin-top: 5px;
+  }
+
+  .resultado{
+    width: 200px !important;
+  }
 
 }
